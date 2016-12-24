@@ -20,14 +20,18 @@ local function micon(name)
 end
 
 -- run commands
-local ranger_command  = function() awful.util.spawn_with_shell("urxvt -e $SHELL -ci 'ranger'") end
+local ranger_command  = function() awful.util.spawn_with_shell("xterm -e $SHELL -ci 'ranger'") end
+local suspend_command = [[/bin/sh -c "~/.scripts/lock && sleep 3 && /bin/systemctl suspend"]]
+local reboot_command = [[/bin/sh -c "/bin/systemctl reboot"]]
+local lock_command = [[/bin/sh -c "~/.scripts/lock"]]
+local poweroff_command = [[/bin/sh -c "/bin/systemctl poweroff"]]
 
 -- Build function
 --------------------------------------------------------------------------------
 function menu.build(args)
 
 	local args = args or {}
-	local fm = args.fm or "nautilus"
+	local fm = args.fm or "ranger"
 	local separator = args.separator or { widget = redflat.gauge.separator.horizontal() }
 	local theme = args.theme or {}
 	local icon_style = args.icon_style or {}
@@ -39,7 +43,9 @@ function menu.build(args)
 	-- Awesome submenu
 	------------------------------------------------------------
 	local awesomemenu = {
+		{ "Edit config",     "gedit " .. awesome.conffile,  micon("gnome-system-config")  },
 		{ "Restart",         awesome.restart,               micon("gnome-session-reboot") },
+		{ "Quit",            awesome.quit,                  micon("exit")                 },
 		separator,
 		{ "Awesome config",  fm .. " .config/awesome",        micon("folder-bookmarks") },
 		{ "Awesome lib",     fm .. " /usr/share/awesome/lib", micon("folder-bookmarks") }
@@ -48,10 +54,9 @@ function menu.build(args)
 	-- Exit submenu
 	------------------------------------------------------------
 	local exitmenu = {
-		{ "Reboot",          "reboot",                    micon("gnome-session-reboot")  },
+		{ "Reboot",          reboot_command,              micon("gnome-session-reboot")  },
 		{ "Switch user",     "dm-tool switch-to-greeter", micon("gnome-session-switch")  },
-		{ "Suspend",         "systemctl suspend" ,        micon("gnome-session-suspend") },
-		{ "Log out",         awesome.quit,                micon("exit")                },
+		{ "Suspend",         suspend_command,             micon("gnome-session-suspend") }
 	}
 
 	-- Places submenu
@@ -63,8 +68,19 @@ function menu.build(args)
 		{ "Pictures",    fm .. " Pictures",  micon("folder-pictures")  },
 		{ "Videos",      fm .. " Videos",    micon("folder-videos")    },
 		separator,
-		{ "Media",       fm .. " /mnt/media", micon("folder-bookmarks") },
-		{ "Storage",     fm .. " /opt",       micon("folder-bookmarks") },
+		{ "HAY",         fm .. " /hay/", micon("folder-bookmarks") }
+	}
+
+	-- Favori submenu
+	------------------------------------------------------------
+	local favori = {
+		{ "Chromium",        "chromium",             micon("chromium")                },
+		{ "Firefox",         "firefox",              micon("firefox")                 },
+		{ "Nautilus",        "nautilus",             micon("folder")                  },
+		{ "Ranger",          ranger_command,         micon("folder")                  },
+		{ "Gedit",           "gedit",                micon("gedit")                   },
+		{ "Exaile",          "exaile",               micon("exaile")                  },
+		separator,
 	}
 
 	-- Main menu
@@ -72,17 +88,13 @@ function menu.build(args)
 	local mainmenu = redflat.menu({ hide_timeout = 1, theme = theme,
 		items = {
 			{ "Awesome",         awesomemenu,            beautiful.icon.awesome },
+			{ "Favori",          favori,                 micon("folder_home"), key = "c"  },
 			{ "Applications",    appmenu,                micon("distributor-logo")        },
 			{ "Places",          placesmenu,             micon("folder_home"), key = "c"  },
 			separator,
-			{ "Firefox",         "firefox",              micon("firefox")                 },
-			{ "Nemo",            "nemo",                 micon("folder")                  },
-			{ "Ranger",          ranger_command,         micon("folder")                  },
-			{ "Geany",           "geany",                micon("geany")                   },
-			{ "Exaile",          "exaile",               micon("exaile")                  },
-			separator,
 			{ "Exit",            exitmenu,               micon("exit")                    },
-			{ "Shutdown",        "shutdown now", micon("system-shutdown")         }
+			{ "Lock",            lock_command,           micon("system-shutdown")         },
+			{ "Shutdown",        poweroff_command,       micon("system-shutdown")         }
 		}
 	})
 

@@ -32,7 +32,7 @@ function desktop:init(args)
 	local netspeed = { geometry = wgeometry(grid, places.netspeed, workarea) }
 
 	netspeed.args = {
-		interface    = "wlp3s0",
+		interface    = "wlp1s0",
 		maxspeed     = { up = 5*1024^2, down = 5*1024^2 },
 		crit         = { up = 5*1024^2, down = 5*1024^2 },
 		timeout      = 2,
@@ -46,10 +46,10 @@ function desktop:init(args)
 	local ssdspeed = { geometry = wgeometry(grid, places.ssdspeed, workarea) }
 
 	ssdspeed.args = {
-		interface = "sdb",
+		interface = "sda",
 		meter_function = system.disk_speed,
 		timeout   = 2,
-		label     = "SOLID DRIVE"
+		label     = "ROOT"
 	}
 
 	ssdspeed.style = { unit = { { "B", -1 }, { "KB", 2 }, { "MB", 2048 } } }
@@ -59,10 +59,10 @@ function desktop:init(args)
 	local hddspeed = { geometry = wgeometry(grid, places.hddspeed, workarea) }
 
 	hddspeed.args = {
-		interface = "sdc",
+		interface = "sdb",
 		meter_function = system.disk_speed,
 		timeout = 2,
-		label = "HARD DRIVE"
+		label = "HAY"
 	}
 
 	hddspeed.style = awful.util.table.clone(ssdspeed.style)
@@ -106,10 +106,10 @@ function desktop:init(args)
 		sensors  = {
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/" },
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/home" },
-			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/opt" },
-			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/mnt/media" }
+			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/back" },
+			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/hay" }
 		},
-		names   = {"root", "home", "misc", "data"},
+		names   = {"root", "home", "back", "hay"},
 		timeout = 300
 	}
 
@@ -128,10 +128,10 @@ function desktop:init(args)
 		sensors = {
 			{ meter_function = system.thermal.sensors_core, args = { index = 0, main = true }, maxm = 100, crit = 75 },
 			{ meter_function = system.thermal.sensors_core, args = { index = 1 }, maxm = 100, crit = 75 },
-			{ meter_function = system.thermal.sensors_core, args = { index = 2 }, maxm = 100, crit = 75 },
-			{ meter_function = system.thermal.sensors_core, args = { index = 3 }, maxm = 100, crit = 75 },
+			--{ meter_function = system.thermal.sensors_core, args = { index = 2 }, maxm = 100, crit = 75 },
+			--{ meter_function = system.thermal.sensors_core, args = { index = 3 }, maxm = 100, crit = 75 },
 		},
-		names   = { "core1", "core2", "core3", "core4" },
+		names   = { "core1", "core2" },
 		timeout = 10
 	}
 
@@ -144,7 +144,7 @@ function desktop:init(args)
 	local thermald = { geometry = wgeometry(grid, places.thermald, workarea) }
 
 	thermald.args = {
-		sensors = { { meter_function = system.thermal.hddtemp, args = {disk = "/dev/sdc"}, maxm = 60, crit = 45 } },
+		sensors = { { meter_function = system.thermal.hddtemp, args = {disk = "/dev/sda"}, maxm = 60, crit = 45 } },
 		names   = { "hdd" },
 		timeout = 10
 	}
@@ -152,12 +152,12 @@ function desktop:init(args)
 	thermald.style = thermalc.style
 
 	-- gpu
-	local thermalg = { geometry = wgeometry(grid, places.thermalg, workarea) }
-	thermalg.args = {
-		sensors = { { meter_function = system.thermal.nvprime, maxm = 105, crit = 80 } },
-		names   = { "gpu" },
-		timeout = 10
-	}
+	--local thermalg = { geometry = wgeometry(grid, places.thermalg, workarea) }
+	--thermalg.args = {
+	--	sensors = { { meter_function = system.thermal.nvprime, maxm = 105, crit = 80 } },
+	--	names   = { "gpu" },
+	--	timeout = 10
+	--}
 
 	thermalg.style = thermalc.style
 
