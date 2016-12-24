@@ -6,7 +6,7 @@ Custom config for [Awesome WM](http://awesome.naquadah.org). All stuff like self
 Screenshots
 ----------
 [//]: # (TODO:relative link to image)
-![](https://raw.githubusercontent.com/kenanpelit/awesome-config/master/blue.png)
+![](https://github.com/kenanpelit/awesome-config/blob/kenan/blue.png)
 ---
 
 Dependencies
