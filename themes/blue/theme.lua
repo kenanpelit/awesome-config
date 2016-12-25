@@ -185,7 +185,7 @@ theme.desktop.places = {
 	netspeed = { 1, 2 },
 	ssdspeed = { 1, 3 },
 	hddspeed = { 1, 4 },
-  transm   = { 1, 5 },
+	transm   = { 1, 5 },
 	cpumem   = { 1, 6 },
 	disks    = { 1, 7 }
 }
