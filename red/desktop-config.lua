@@ -127,7 +127,7 @@ function desktop:init(args)
 	thermalc.args = {
 		sensors = {
 			{ meter_function = system.thermal.sensors_core, args = { index = 0, main = true }, maxm = 100, crit = 75 },
-			{ meter_function = system.thermal.sensors_core, args = { index = 1 }, maxm = 100, crit = 75 },
+			{ meter_function = system.thermal.sensors_core, args = { index = 1 }, maxm = 100, crit = 75 }
 			--{ meter_function = system.thermal.sensors_core, args = { index = 2 }, maxm = 100, crit = 75 },
 			--{ meter_function = system.thermal.sensors_core, args = { index = 3 }, maxm = 100, crit = 75 },
 		},
