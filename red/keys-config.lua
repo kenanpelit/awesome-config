@@ -29,6 +29,7 @@ local allscr = redflat.widget.tasklist.filter.allscreen
 local laybox = redflat.widget.layoutbox
 local tagsel = awful.tag.selected
 local exaile = redflat.float.exaile
+local mpd = redflat.float.mpd
 local redbar = redflat.titlebar
 local gui_editor = "emacsclient -nc -s /tmp/emacs1000/server "
 
@@ -166,7 +167,7 @@ function hotkeys:init(args)
     self.calendar = args.calendar or "xterm -class Calcurse -e calcurse"
     self.mpv = args.mpv or "mpv --profile=pseudo-gui"
     self.newsbeuter = args.newsbeuter or "xterm -e newsbeuter"
-    self.browser = args.browser or "google-chrome-stable %U --force-device-scale-factor=1.5"
+    self.browser = args.browser or "google-chrome-stable %U --force-device-scale-factor=1.4"
     self.keepassx = args.keepassx or "keepassx2"
     self.virtualbox = args.virtualbox or "virtualbox"
     --self.rofi = args.rofi or "/bin/sh -c ${HOME}/.scripta/rofi.sh"
@@ -436,9 +437,13 @@ function hotkeys:init(args)
             args = { {              "Mod1" }, "e", function() redflat.widget.minitray:toggle() end },
             comment = "Show minitray"
         },
+        --{
+        --    args = { { self.mod            }, "e", function() exaile:show() end },
+        --    comment = "Show exaile widget"
+        --},
         {
-            args = { { self.mod            }, "e", function() exaile:show() end },
-            comment = "Show exaile widget"
+            args = { { self.mod            }, "e", function() mpd:show() end },
+            comment = "Show mpd widget"
         },
         {
             args = { { self.mod            }, "F1", function() redflat.float.hotkeys:show() end },

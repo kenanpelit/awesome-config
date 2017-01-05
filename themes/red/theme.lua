@@ -8,7 +8,7 @@ local wa = screen[mouse.screen].workarea
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
 theme.color = {
-	main      = "#A90017",
+	main      = "#008181",
 	gray      = "#575757",
 	bg        = "#161616",
 	bg_second = "#181818",
@@ -63,15 +63,15 @@ theme.font_exaile_time = "Play bold 16" -- time status font for exaile widget
 theme.font_helper_title = "Roboto bold 16" -- hotkeys helper title font
 
 -- cairo formated fonts
-theme.cf_appswitcher     = { font = "Play", size = 22, face = 1 } -- application switcher font
-theme.cf_monitor         = { font = "Play", size = 20, face = 1 } -- monitoring widget font
-theme.cf_navigator_title = { font = "Play", size = 28, face = 1, slant = 0 } -- window navigation title font
-theme.cf_navigator_main  = { font = "Play", size = 22, face = 1, slant = 0 } -- window navigation font
+theme.cf_appswitcher     = { font = "Play", size = 16, face = 1 } -- application switcher font
+theme.cf_monitor         = { font = "Play", size = 14, face = 1 } -- monitoring widget font
+theme.cf_navigator_title = { font = "Play", size = 22, face = 1, slant = 0 } -- window navigation title font
+theme.cf_navigator_main  = { font = "Play", size = 16, face = 1, slant = 0 } -- window navigation font
 
 -- environment vars
-theme.panel_height        = 50 -- panel height
-theme.border_width        = 4  -- window border width
-theme.useless_gap_width   = 12 -- Lain useless gap
+theme.panel_height        = 40 -- panel height
+theme.border_width        = 1  -- window border width
+theme.useless_gap_width   = 2  -- Lain useless gap
 theme.global_border_width = 0  -- Lain global border gap
 
 -- grid layout prop
@@ -161,21 +161,21 @@ theme.desktop.dashpack = {
 -- Widgets placement
 --------------------------------------------------------------------------------
 theme.desktop.grid = {
-	width  = { 520, 520, 520 },
-	height = { 190, 188, 144, 18 },
+	width  = { 800, 800, 800 },
+	height = { 60, 170, 170, 170, 180, 180, 140, 18 },
 	edge   = { width = { 80, 80 }, height = { 80, 60 } }
 }
 
 theme.desktop.places = {
-	netspeed = { 1, 1 },
-	ssdspeed = { 2, 1 },
-	hddspeed = { 3, 1 },
-	cpumem   = { 1, 2 },
-	transm   = { 2, 2 },
-	disks    = { 2, 3 },
-	thermalc = { 1, 3 },
-	thermald = { 1, 4 },
-	thermalg = { 2, 4 },
+	thermalc = { 1, 1 },
+	netspeed = { 1, 2 },
+	ssdspeed = { 1, 3 },
+	hddspeed = { 1, 4 },
+	cpumem   = { 1, 5 },
+	transm   = { 1, 6 },
+	disks    = { 1, 7 },
+	thermald = { 1, 8 },
+	thermalg = { 1, 9 },
 }
 
 -- Naughty config
@@ -488,27 +488,27 @@ theme.widget.tasklist.winmenu.icon = {
 
 -- task aliases
 theme.widget.tasklist.appnames = {}
-theme.widget.tasklist.appnames["Nemo"                ] = "NFM"
-theme.widget.tasklist.appnames["Gvim"                ] = "VIM"
+theme.widget.tasklist.appnames["Exaile"              ] = "EXAILE"
+theme.widget.tasklist.appnames["Smplayer"            ] = "SMPL"
+theme.widget.tasklist.appnames["Firefox"             ] = "FIFOX"
+theme.widget.tasklist.appnames["Gnome-terminal"      ] = "GTERM"
+theme.widget.tasklist.appnames["Gnome-system-monitor"] = "SYMON"
+theme.widget.tasklist.appnames["Gimp-2.8"            ] = "GIMP"
+theme.widget.tasklist.appnames["Goldendict"          ] = "GDIC"
+theme.widget.tasklist.appnames["Easytag"             ] = "ETAG"
+theme.widget.tasklist.appnames["Mcomix"              ] = "COMIX"
+theme.widget.tasklist.appnames["Claws-mail"          ] = "CMAIL"
+theme.widget.tasklist.appnames["URxvt"               ] = "RXVT"
+theme.widget.tasklist.appnames["VirtualBox"          ] = "VBOX"
 theme.widget.tasklist.appnames["Terminator"          ] = "TRM"
-theme.widget.tasklist.appnames["Firefox"             ] = "FFX"
-theme.widget.tasklist.appnames["Gnome-terminal"      ] = "TER"
-theme.widget.tasklist.appnames["Gnome-system-monitor"] = "GSM"
-theme.widget.tasklist.appnames["Gimp-2.8"            ] = "GMP"
-theme.widget.tasklist.appnames["Gimp"                ] = "GMP"
-theme.widget.tasklist.appnames["Goldendict"          ] = "DIC"
-theme.widget.tasklist.appnames["Transmission-gtk"    ] = "TMN"
-theme.widget.tasklist.appnames["Steam"               ] = "STM"
-theme.widget.tasklist.appnames["Easytag"             ] = "TAG"
-theme.widget.tasklist.appnames["Mcomix"              ] = "CMX"
-theme.widget.tasklist.appnames["Claws-mail"          ] = "CML"
+theme.widget.tasklist.appnames["Keepassx"            ] = "KPASS"
 
 -- Minitray
 ------------------------------------------------------------
 theme.widget.minitray = {
 	border_width = 4,
-	geometry     = { height = 50 },
-	screen_pos   = { { x = 1530, y = 960 } },
+	geometry     = { height = 40 },
+	screen_pos   = { { x = 1460, y = 1500 } },
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
 	color        = { wibox = theme.color.wibox, border = theme.color.wibox }
 }
@@ -606,7 +606,7 @@ theme.float.appswitcher.hotkeys = { "1",   "2",  "3",  "4",  "5",  "6",  "7",  "
 -- Hotkeys helper
 ------------------------------------------------------------
 theme.float.hotkeys = {
-	geometry      = { width = 1540, height = 1000 },
+	geometry      = { width = 1800, height = 1500 },
 	border_margin = { 0, 0, 20, 20 },
 	sep_margin    = { 19, 29, 10, 10 },
 	border_width  = 0,
@@ -624,7 +624,8 @@ local exaile_size = { width = 520, height = 150 }
 theme.float.exaile = {
 	geometry     = exaile_size,
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
-	screen_pos   = { { x = 580, y = wa.y + wa.height - theme.useless_gap_width - exaile_size.height } },
+	screen_pos   = { { x = 650, y = wa.y + wa.height - theme.useless_gap_width - exaile_size.height } },
+--	screen_pos   = { { x = 10, y = 250 - theme.useless_gap_width - exaile_size.height } },
 	titlefont    = theme.font_exaile_main,
 	artistfont   = theme.font_exaile_main,
 	timefont     = theme.font_exaile_time,
@@ -647,7 +648,8 @@ local notify_size = { width = 484, height = 106 }
 theme.float.notify = {
 	geometry     = notify_size,
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
-	screen_pos   = {{ x = wa.x + wa.width - notify_size.width - theme.useless_gap_width, y = theme.useless_gap_width }},
+--	screen_pos   = {{ x = wa.x + wa.width - notify_size.width - theme.useless_gap_width, y = theme.useless_gap_width }},
+	screen_pos   = {{ x = wa.x +  1800 - notify_size.width - theme.useless_gap_width, y = theme.useless_gap_width }},
 	font         = theme.font_notify,
 	border_width = 0,
 	color        = theme.color

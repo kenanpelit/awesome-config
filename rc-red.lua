@@ -11,16 +11,16 @@ local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
 local wibox = require("wibox")
+local hints = require("hints")
 local beautiful = require("beautiful")
--- local naughty = require("naughty")
-naughty = require("naughty")
+local naughty = require("naughty")
 
 require("awful.autofocus")
 
 -- User modules
 ------------------------------------------------------------
 timestamp = require("redflat.timestamp")
--- asyncshell = require("redflat.asyncshell")
+asyncshell = require("redflat.asyncshell")
 
 local lain = require("lain")
 local redflat = require("redflat")
@@ -61,11 +61,15 @@ local homedir = os.getenv("HOME")
 local theme_path = homedir .. "/.config/awesome/themes/red"
 beautiful.init(theme_path .. "/theme.lua")
 
-local terminal = "urxvt"
-local editor   = os.getenv("EDITOR") or "geany"
+local terminal = "terminator"
+local editor   = os.getenv("EDITOR") or "emacs"
 local editor_cmd = terminal .. " -e " .. editor
-local fm = "nemo"
+local fm = "xterm -e ranger"
 local modkey = "Mod4"
+
+-- https://github.com/kenanpelit/hints
+-----------------------------------------------------------------------------------------------------------------------
+hints.init()
 
 -- Layouts setup
 -----------------------------------------------------------------------------------------------------------------------
@@ -74,8 +78,8 @@ local layouts = require("red.layout-config") -- load file with layouts configura
 -- Tags
 -----------------------------------------------------------------------------------------------------------------------
 local tags = {
-	names  = { "Main", "Full", "Edit", "Read", "Free" },
-	layout = { layouts[7], layouts[8], layouts[8], layouts[7], layouts[2] },
+  names  = { "①  K ☢", "② Term ✎", "④ Free ☑", "⑤ Virt ⛃", "⑥ Docs ✍", "⑦ Max ☑"},
+  layout = { layouts[7], layouts[7],  layouts[7], layouts[8], layouts[8], layouts[2]},
 }
 
 for s = 1, screen.count() do tags[s] = awful.tag(tags.names, s, tags.layout) end
@@ -177,6 +181,21 @@ volume.widget:buttons(awful.util.table.join(
 	awful.button({}, 8, function() redflat.float.exaile:action("Prev")      end),
 	awful.button({}, 9, function() redflat.float.exaile:action("Next")      end)
 ))
+--------------------------------------------------------------------------------
+local volume = {}
+volume.widget = redflat.widget.pulse()
+volume.layout = wibox.layout.margin(volume.widget, unpack(pmargin.volume or {}))
+
+volume.widget:buttons(awful.util.table.join(
+  awful.button({}, 4, function() redflat.widget.pulse:change_volume()                end),
+  awful.button({}, 5, function() redflat.widget.pulse:change_volume({ down = true }) end),
+  awful.button({}, 3, function() redflat.float.mpd:show()                            end),
+  awful.button({}, 2, function() redflat.widget.pulse:mute()                         end),
+  awful.button({}, 1, function() redflat.float.mpd:action("toggle")    end),
+  awful.button({}, 8, function() redflat.float.mpd:action("prev")      end),
+  awful.button({}, 9, function() redflat.float.mpd:action("next")      end)
+))
+
 
 -- redflat.float.exaile:start()
 
@@ -198,7 +217,7 @@ mail.layout = wibox.layout.margin(mail.widget, unpack(pmargin.mail or {}))
 
 -- buttons
 mail.widget:buttons(awful.util.table.join(
-	awful.button({ }, 1, function () awful.util.spawn_with_shell("claws-mail") end),
+  awful.button({ }, 1, function () awful.util.spawn_with_shell("emacsclient -c --eval '(gnus)'") end),
 	awful.button({ }, 2, function () redflat.widget.mail:update()              end)
 ))
 
@@ -247,7 +266,7 @@ local monitor = {
 		{ func = system.pformatted.bat(15), arg = "BAT1" },
 		{ timeout = 60, monitor = { label = "BAT" } }
 	),
-	net = redflat.widget.net({ interface = "wlp3s0", speed  = netspeed, autoscale = false }, { timeout = 2 })
+	net = redflat.widget.net({ interface = "wlp1s0", speed  = netspeed, autoscale = false }, { timeout = 2 })
 }
 
 monitor.cpu:buttons(awful.util.table.join(
@@ -385,7 +404,7 @@ awful.rules.rules = custom_rules
 -----------------------------------------------------------------------------------------------------------------------
 local titlebar = require("red.titlebar-config") -- load file with titlebar configuration
 
-local t_exceptions = { "Plugin-container", "Steam", "Key-mon", "Gvim" }
+local t_exceptions = { "mpv", "google-chrome", "Key-mon", "terminator" }
 
 titlebar:init({ enable = true, exceptions = t_exceptions })
 

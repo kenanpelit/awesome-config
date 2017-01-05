@@ -8,21 +8,21 @@ local wa = screen[mouse.screen].workarea
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
 theme.color = {
-  main      = "#298c8c",
-  gray      = "#575757",
-  bg        = "#161616",
-  bg_second = "#181818",
-  wibox     = "#202020",
-  icon      = "#a0a0a0",
-  text      = "#aaaaaa",
-  urgent    = "#ff0000",
-  highlight = "#ffffff",
+	main      = "#064E71",
+	gray      = "#575757",
+	bg        = "#161616",
+	bg_second = "#181818",
+	wibox     = "#202020",
+	icon      = "#a0a0a0",
+	text      = "#aaaaaa",
+	urgent    = "#B32601",
+	highlight = "#ffffff",
 
-  border    = "#404040",
-  shadow1   = "#141414",
-  shadow2   = "#313131",
-  shadow3   = "#1c1c1c",
-  shadow4   = "#767676"
+	border    = "#404040",
+	shadow1   = "#141414",
+	shadow2   = "#313131",
+	shadow3   = "#1c1c1c",
+	shadow4   = "#767676"
 }
 
 -- colors for defaults widgets
@@ -175,19 +175,19 @@ theme.desktop.sline = {
 -- Widgets placement
 --------------------------------------------------------------------------------
 theme.desktop.grid = {
-	width  = { 700, 700, 700 },
-	height = { 20, 180, 180, 180, 170, 170, 140 },
-	edge   = { width = { 120, 120 }, height = { 120, 120 } }
+	width  = { 520, 520, 520 },
+	height = { 180, 160, 160, 138, 18 },
+	edge   = { width = { 60, 60 }, height = { 40, 40 } }
 }
 
 theme.desktop.places = {
-	thermal  = { 1, 1 },
-	netspeed = { 1, 2 },
-	ssdspeed = { 1, 3 },
-	hddspeed = { 1, 4 },
-	transm   = { 1, 5 },
-	cpumem   = { 1, 6 },
-	disks    = { 1, 7 }
+	netspeed = { 1, 1 },
+	ssdspeed = { 2, 1 },
+	hddspeed = { 3, 1 },
+	cpumem   = { 1, 2 },
+	transm   = { 1, 3 },
+	disks    = { 1, 4 },
+	thermal  = { 1, 5 }
 }
 
 -- Naughty config
@@ -523,7 +523,7 @@ theme.widget.tasklist.appnames["Keepassx"            ] = "KPASS"
 theme.widget.minitray = {
 	border_width = 0,
 	geometry     = { height = 40 },
-	screen_pos   = { { x = 1500, y = 1500 } },
+	screen_pos   = { { x = 1800, y = 1110 } },
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
 	color        = { wibox = theme.color.wibox, border = theme.color.wibox }
 }
@@ -621,7 +621,7 @@ theme.float.appswitcher.hotkeys = { "1",   "2",  "3",  "4",  "5",  "6",  "7",  "
 -- Hotkeys helper
 ------------------------------------------------------------
 theme.float.hotkeys = {
-	geometry      = { width = 1800, height = 1500 },
+	geometry      = { width = 1540, height = 1000 },
 	border_margin = { 0, 0, 20, 20 },
 	sep_margin    = { 19, 29, 10, 10 },
 	border_width  = 0,
@@ -662,8 +662,7 @@ local notify_size = { width = 484, height = 106 }
 theme.float.notify = {
 	geometry     = notify_size,
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
-	--screen_pos   = {{ x = wa.x + wa.width - notify_size.width - theme.useless_gap_width, y = theme.useless_gap_width }},
-	screen_pos   = {{ x = wa.x + 1800 - notify_size.width - theme.useless_gap_width, y = theme.useless_gap_width }},
+	screen_pos   = {{ x = wa.x + wa.width - notify_size.width - theme.useless_gap_width, y = theme.useless_gap_width }},
 	font         = theme.font_notify,
 	border_width = 0,
 	color        = theme.color

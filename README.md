@@ -1,13 +1,14 @@
-Thanks worron! Original is here: https://github.com/worron/awesome-config
-
 # Red Flat Awesome WM config
 Custom config for [Awesome WM](http://awesome.naquadah.org). All stuff like self-written widgets, utilities and modification parts of another's configs are collected in one module called `redflat`.
 
 Screenshots
 ----------
 [//]: # (TODO:relative link to image)
-![](https://github.com/kenanpelit/awesome-config/blob/kenan/blue.png)
+![](https://github.com/worron/awesome-config/wiki/images/red-1.png)
 ---
+![](https://github.com/worron/awesome-config/wiki/images/blue-1.png)
+---
+![](https://github.com/worron/awesome-config/wiki/images/orange-1.png)
 
 Dependencies
 ------------

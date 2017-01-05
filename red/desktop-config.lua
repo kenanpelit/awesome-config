@@ -107,7 +107,7 @@ function desktop:init(args)
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/" },
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/home" },
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/back" },
-			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/hay" }
+			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/hay/home" }
 		},
 		names   = {"root", "home", "back", "hay"},
 		timeout = 300
@@ -127,7 +127,7 @@ function desktop:init(args)
 	thermalc.args = {
 		sensors = {
 			{ meter_function = system.thermal.sensors_core, args = { index = 0, main = true }, maxm = 100, crit = 75 },
-			{ meter_function = system.thermal.sensors_core, args = { index = 1 }, maxm = 100, crit = 75 }
+			{ meter_function = system.thermal.sensors_core, args = { index = 1 }, maxm = 100, crit = 75 },
 			--{ meter_function = system.thermal.sensors_core, args = { index = 2 }, maxm = 100, crit = 75 },
 			--{ meter_function = system.thermal.sensors_core, args = { index = 3 }, maxm = 100, crit = 75 },
 		},
@@ -152,12 +152,12 @@ function desktop:init(args)
 	thermald.style = thermalc.style
 
 	-- gpu
-	--local thermalg = { geometry = wgeometry(grid, places.thermalg, workarea) }
-	--thermalg.args = {
-	--	sensors = { { meter_function = system.thermal.nvprime, maxm = 105, crit = 80 } },
-	--	names   = { "gpu" },
-	--	timeout = 10
-	--}
+	local thermalg = { geometry = wgeometry(grid, places.thermalg, workarea) }
+	thermalg.args = {
+		sensors = { { meter_function = system.thermal.nvprime, maxm = 105, crit = 80 } },
+		names   = { "gpu" },
+		timeout = 10
+	}
 
 	thermalg.style = thermalc.style
 
@@ -173,7 +173,7 @@ function desktop:init(args)
 	disks.widget   = redflat.desktop.dashpack(disks.args, disks.geometry, disks.style)
 	thermalc.widget = redflat.desktop.dashpack(thermalc.args, thermalc.geometry, thermalc.style)
 	thermald.widget = redflat.desktop.dashpack(thermald.args, thermald.geometry, thermald.style)
-	thermalg.widget = redflat.desktop.dashpack(thermalg.args, thermalg.geometry, thermalg.style)
+--	thermalg.widget = redflat.desktop.dashpack(thermalg.args, thermalg.geometry, thermalg.style)
 end
 
 -- End

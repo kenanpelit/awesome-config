@@ -38,6 +38,7 @@ function autostart.run()
   awful.util.spawn_with_shell("~/.scripta/set-trackpoint.sh")
   awful.util.spawn_with_shell("~/.scripta/set-caps2ctrl.sh")
   awful.util.spawn_with_shell("~/.scripta/set-keyboard.sh")
+  awful.util.spawn_with_shell("~/.scripta/start-mail-notify.sh")
   awful.util.spawn_with_shell("paplay ~/.awesome/icq.ogg")
 
 end

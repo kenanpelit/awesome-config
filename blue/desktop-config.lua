@@ -32,7 +32,7 @@ function desktop:init(args)
 	local netspeed = { geometry = wgeometry(grid, places.netspeed, workarea) }
 
 	netspeed.args = {
-		interface    = "wlp1s0",
+		interface    = "wlp3s0",
 		maxspeed     = { up = 5*1024^2, down = 5*1024^2 },
 		crit         = { up = 5*1024^2, down = 5*1024^2 },
 		timeout      = 2,
@@ -46,7 +46,7 @@ function desktop:init(args)
 	local ssdspeed = { geometry = wgeometry(grid, places.ssdspeed, workarea) }
 
 	ssdspeed.args = {
-		interface = "sda",
+		interface = "sdb",
 		meter_function = system.disk_speed,
 		timeout   = 2,
 		label     = "SOLID DRIVE"
@@ -61,7 +61,7 @@ function desktop:init(args)
 	local hddspeed = { geometry = wgeometry(grid, places.hddspeed, workarea) }
 
 	hddspeed.args = {
-		interface = "sdb",
+		interface = "sdc",
 		meter_function = system.disk_speed,
 		timeout = 2,
 		label = "HARD DRIVE"
@@ -108,10 +108,10 @@ function desktop:init(args)
 		sensors  = {
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/" },
 			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/home" },
-			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/back" },
-			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/hay/home" }
+			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/opt" },
+			{ meter_function = system.fs_info, maxm = 100, crit = 80, args = "/mnt/media" }
 		},
-		names   = {"root", "home", "back", "hay"},
+		names   = {"root", "home", "misc", "data"},
 		timeout = 300
 	}
 
@@ -127,10 +127,10 @@ function desktop:init(args)
 	thermal.args = {
 		sensors = {
 			{ meter_function = system.thermal.sensors, args = "'Physical id 0'", maxm = 100, crit = 75 },
-			{ meter_function = system.thermal.hddtemp, args = {disk = "/dev/sda"}, maxm = 60, crit = 45 }
---			{ meter_function = system.thermal.nvprime, maxm = 105, crit = 80 }
+			{ meter_function = system.thermal.hddtemp, args = {disk = "/dev/sdc"}, maxm = 60, crit = 45 },
+			{ meter_function = system.thermal.nvprime, maxm = 105, crit = 80 }
 		},
-		names   = {"cpu", "sdd"},
+		names   = {"cpu", "hdd", "gpu"},
 		timeout = 5
 	}
 
