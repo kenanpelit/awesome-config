@@ -263,10 +263,10 @@ local netspeed  = { up   = 5 * 1024^2, down = 5 * 1024^2 }
 local monitor = {
   cpu = redflat.widget.sysmonblingbling({ func = system.pformatted.cpu(80) }, { timeout = 2,  monitor = { label = "CPU" ,  color = "#990000" } }),
   mem = redflat.widget.sysmonblingbling({ func = system.pformatted.mem(80) }, { timeout = 2,  monitor = { label = "MEM" ,  color = "#990000" } }),
+  bat = redflat.widget.sysmonblingbling({ func = system.pformatted.bat(15), arg = "BAT1" }, { timeout = 60, monitor = { label = "BAT",  color = "#990000" } }),
     --cpu = redflat.widget.sysmon({ func = system.pformatted.cpu(80) }, { timeout = 2,  monitor = { label = "CPU" } }),
     --mem = redflat.widget.sysmon({ func = system.pformatted.mem(80) }, { timeout = 10, monitor = { label = "RAM" } }),
-    --bat = redflat.widget.sysmon({ func = system.pformatted.bat(15), arg = "BAT1" }, { timeout = 60, monitor = { label = "BAT" } }
-  bat = redflat.widget.sysmonblingbling({ func = system.pformatted.bat(15), arg = "BAT1" }, { timeout = 60, monitor = { label = "BAT",  color = "#990000" } }),
+    --bat = redflat.widget.sysmon({ func = system.pformatted.bat(15), arg = "BAT1" }, { timeout = 60, monitor = { label = "BAT" } }),
     net = redflat.widget.net({ interface = "wlp1s0", speed  = netspeed, autoscale = false }, { timeout = 2 })
 }
 
