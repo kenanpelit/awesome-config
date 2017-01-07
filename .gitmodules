@@ -1,6 +1,6 @@
 [submodule "lain"]
 	path = lain
-	url = https://github.com/kenanpelit/lain
+	url = https://github.com/kenanpelit/lain.git
 	branch = kenan
 [submodule "redflat"]
 	path = redflat
