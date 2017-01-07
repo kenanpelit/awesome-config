@@ -3,4 +3,4 @@
 	url = https://github.com/copycat-killer/lain.git
 [submodule "redflat"]
 	path = redflat
-	url = https://github.com/worron/redflat.git
+	url = https://github.com/kenanpelit/redflat.git

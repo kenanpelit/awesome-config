@@ -8,14 +8,15 @@ local wa = screen[mouse.screen].workarea
 -- Color scheme
 -----------------------------------------------------------------------------------------------------------------------
 theme.color = {
-	main      = "#008181",
+	main      = "#be3400",
 	gray      = "#575757",
 	bg        = "#161616",
 	bg_second = "#181818",
 	wibox     = "#202020",
 	icon      = "#a0a0a0",
 	text      = "#aaaaaa",
-	urgent    = "#00725B",
+--	urgent    = "#00725B",
+	urgent    = "#00ffff",
 	highlight = "#ffffff",
 
 	border    = "#404040",
@@ -70,8 +71,8 @@ theme.cf_navigator_main  = { font = "Play", size = 16, face = 1, slant = 0 } -- 
 
 -- environment vars
 theme.panel_height        = 40 -- panel height
-theme.border_width        = 1  -- window border width
-theme.useless_gap_width   = 2  -- Lain useless gap
+theme.border_width        = 4  -- window border width
+theme.useless_gap_width   = 4  -- Lain useless gap
 theme.global_border_width = 0  -- Lain global border gap
 
 -- grid layout prop
@@ -162,8 +163,8 @@ theme.desktop.dashpack = {
 --------------------------------------------------------------------------------
 theme.desktop.grid = {
 	width  = { 800, 800, 800 },
-	height = { 60, 170, 170, 170, 180, 180, 140, 18 },
-	edge   = { width = { 80, 80 }, height = { 80, 60 } }
+	height = { 60, 170, 170, 170, 18, 180, 180, 140 },
+	edge   = { width = { 80, 80 }, height = { 100, 80 } }
 }
 
 theme.desktop.places = {
@@ -171,10 +172,10 @@ theme.desktop.places = {
 	netspeed = { 1, 2 },
 	ssdspeed = { 1, 3 },
 	hddspeed = { 1, 4 },
-	cpumem   = { 1, 5 },
-	transm   = { 1, 6 },
-	disks    = { 1, 7 },
-	thermald = { 1, 8 },
+	thermald = { 1, 5 },
+	cpumem   = { 1, 6 },
+	transm   = { 1, 7 },
+	disks    = { 1, 8 },
 	thermalg = { 1, 9 },
 }
 
@@ -624,8 +625,8 @@ local exaile_size = { width = 520, height = 150 }
 theme.float.exaile = {
 	geometry     = exaile_size,
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
-	screen_pos   = { { x = 650, y = wa.y + wa.height - theme.useless_gap_width - exaile_size.height } },
---	screen_pos   = { { x = 10, y = 250 - theme.useless_gap_width - exaile_size.height } },
+	screen_pos   = { { x = 1340, y = wa.y + wa.height - theme.useless_gap_width - exaile_size.height } },
+	--screen_pos   = { { x = 1340, y = 1740 - theme.useless_gap_width - exaile_size.height } },
 	titlefont    = theme.font_exaile_main,
 	artistfont   = theme.font_exaile_main,
 	timefont     = theme.font_exaile_time,
