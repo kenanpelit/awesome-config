@@ -5,3 +5,4 @@
 [submodule "redflat"]
 	path = redflat
 	url = https://github.com/kenanpelit/redflat.git
+	branch = kenan
