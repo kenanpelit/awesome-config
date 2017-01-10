@@ -162,21 +162,21 @@ theme.desktop.dashpack = {
 -- Widgets placement
 --------------------------------------------------------------------------------
 theme.desktop.grid = {
-	width  = { 800, 800, 800 },
+	width  = { 700, 700, 700 },
 	height = { 60, 170, 170, 170, 18, 180, 180, 140 },
 	edge   = { width = { 120, 120 }, height = { 120, 80 } }
 }
 
 theme.desktop.places = {
-	thermalc = { 1, 1 },
-	netspeed = { 1, 2 },
-	ssdspeed = { 1, 3 },
-	hddspeed = { 1, 4 },
-	thermald = { 1, 5 },
-	cpumem   = { 1, 6 },
-	transm   = { 1, 7 },
-	disks    = { 1, 8 },
-	thermalg = { 1, 9 },
+	thermalc = { 3, 1 },
+	netspeed = { 3, 2 },
+	ssdspeed = { 3, 3 },
+	hddspeed = { 3, 4 },
+	thermald = { 3, 5 },
+	cpumem   = { 3, 6 },
+	transm   = { 3, 7 },
+	disks    = { 3, 8 },
+	thermalg = { 3, 9 },
 }
 
 -- Naughty config

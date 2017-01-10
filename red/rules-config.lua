@@ -45,10 +45,16 @@ function rules:build(args)
         c:geometry({ x = 5, y = 550, width = 960, height = 540 }) end
     },
     {
+      rule = { class = "Ncmpcpp" }, except = { role = "ncmpcpp" },
+      properties = { tag = tags[1][1],  border_width = 0, floating = true },
+      callback = function (c)
+        c:geometry( { x = 40, y = 40, width = 2160, height = 1674 }) end
+    },
+    {
       rule = { class = "Google-chrome" }, except = { role = "google-chrome" },
       properties = { tag = tags[1][1],  border_width = 0, floating = true },
       callback = function (c)
-        c:geometry( { x = 1000, y = 40, width = 2160, height = 1674 }) end
+        c:geometry( { x = 40, y = 40, width = 2160, height = 1674 }) end
     },
     {
       rule = { class = "Emacs" }, except = { role = "emacs" },

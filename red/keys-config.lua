@@ -189,6 +189,7 @@ function hotkeys:init(args)
   self.gnus = args.gnus or "emacs -f gnus"
   self.mpvf = args.mpvf or "/bin/sh -c ${HOME}/.scripta/series-seinfeld.sh"
   self.mpvm = args.mpvm or "/bin/sh -c ${HOME}/.scripta/series-meet.sh"
+  self.ncmpcpp = args.ncmpcpp or "/bin/sh -c ${HOME}/.scripta/start-ncmpcpp2.sh"
   self.off = args.off or "/bin/sh -c ${HOME}/.scripta/start-poweroff.sh"
   self.reboot = args.reboot or "/bin/sh -c ${HOME}/.scripta/start-reboot.sh"
   self.suspend = args.suspend or "/bin/sh -c ${HOME}/.scripta/start-suspend.sh"
@@ -487,6 +488,10 @@ function hotkeys:init(args)
     {
       args = { {                     }, "XF86AudioPrev", function() exaile:action("Prev") end },
       comment = "Previous track"
+    },
+    {
+      args = { { self.mod            }, "l", function () awful.util.spawn(self.ncmpcpp) end },
+      comment = "MPD Ncmpcpp"
     },
     {
       args = { { self.mod            }, "F7", function () awful.util.spawn("mpc prev") end },
