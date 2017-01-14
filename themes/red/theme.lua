@@ -164,7 +164,7 @@ theme.desktop.dashpack = {
 theme.desktop.grid = {
 	width  = { 700, 700, 700 },
 	height = { 60, 170, 170, 170, 18, 180, 180, 140 },
-	edge   = { width = { 120, 120 }, height = { 120, 80 } }
+	edge   = { width = { 120, 120 }, height = { 120, 40 } }
 }
 
 theme.desktop.places = {

@@ -161,7 +161,6 @@ function hotkeys:init(args)
   self.nau = args.nau or "nautilus"
   self.clementine = args.clementine or "clementine"
   self.smplayer = args.smp or "smplayer"
-  self.firefox = args.firefox or "firefox"
   self.xterm = args.xterm or "xterm"
   self.fm = args.fm or "xterm -class Ranger -e ranger"
   self.calendar = args.calendar or "xterm -class Calcurse -e calcurse"
@@ -260,10 +259,22 @@ function hotkeys:init(args)
     },
     { comment = "Scrachtpad" },
     {
-      args = { { self.mod,           }, "t", function() scratch.drop("terminator", "top", "center", 1, 0.25, true) end },
-      comment = "Drop down terminal"
+      args = { { self.mod,           }, "t", function() scratch.drop("terminator", "top", "center", 0.60, 0.40, true) end },
+      comment = "Drop Down Terminal"
     },
-    { comment = "Applications keys" },
+    {
+      args = { { self.mod,           }, "l", function() scratch.drop("xterm -e ncmpcpp", "top", "center", 0.70, 0.50, true) end },
+      comment = "Drop Down Ncmpcpp"
+    },
+    {
+      args = { { "Mod1",   "Control" }, "n", function() scratch.drop("nautilus", "top", "center", 0.70, 0.70, true) end },
+      comment = "Drop Down Nautilus"
+    },
+    {
+      args = { {              "Mod1" }, "t", function() scratch.drop(self.pulsemix, "top", "center", 0.50, 0.30, true) end },
+      comment = "Drop Down Pulsemixer"
+    },
+    { comment = "Applications Keys" },
     {
       args = { { self.mod,           }, "Return", function () awful.util.spawn(self.terminal) end },
       comment = "Terminator"
@@ -271,10 +282,6 @@ function hotkeys:init(args)
     {
       args = { {              "Mod1" }, "v", function () awful.util.spawn(self.browser) end },
       comment = "Browser"
-    },
-    {
-      args = { {              "Mod1" }, "t", function () awful.util.spawn(self.firefox) end },
-      comment = "Firefox"
     },
     {
       args = { {              "Mod5" }, "n", function () awful.util.spawn(self.fm) end },
@@ -490,7 +497,7 @@ function hotkeys:init(args)
       comment = "Previous track"
     },
     {
-      args = { { self.mod            }, "l", function () awful.util.spawn(self.ncmpcpp) end },
+      args = { { self.mod,   "Shift" }, "l", function () awful.util.spawn(self.ncmpcpp) end },
       comment = "MPD Ncmpcpp"
     },
     {
@@ -518,10 +525,10 @@ function hotkeys:init(args)
       args = { {                    }, "XF86AudioLowerVolume", volume_lower },
       comment = "Reduce volume"
     },
-    {
-      args = { {             "Mod5" }, "f", function () awful.util.spawn(self.alsamix) end },
-      comment = "Alsamixer"
-    },
+    --{
+    --  args = { {             "Mod5" }, "f", function () awful.util.spawn(self.alsamix) end },
+    --  comment = "Alsamixer"
+    --},
     {
       args = { {             "Mod5" }, "a", function () awful.util.spawn(self.pulsemix) end },
       comment = "Pulsemixer"
@@ -542,34 +549,22 @@ function hotkeys:init(args)
     --},
     {
       args = { { self.mod,            }, "v", volume_mute },
-      --    args = { {                     }, "XF86AudioMute", function () awful.util.spawn("pulseaudio-ctl mute") end },
+      -- args = { {                     }, "XF86AudioMute", function () awful.util.spawn("pulseaudio-ctl mute") end },
       comment = "Toggle mute"
     },
     { comment = "Brightness control" },
     {
       args = { {                     }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight -inc 5") end },
+      --args = { {                     }, "XF86MonBrightnessUp", function() br({ step = 5 }) end },
+      --args = { {                     }, "XF86MonBrightnessUp", function () awful.util.spawn(self.lightu) end },
       comment = "Increase brightness"
     },
     {
       args = { {                     }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5") end },
+      --args = { {                     }, "XF86MonBrightnessDown", function() br({ step = 5, down = true }) end },
+      --args = { {                     }, "XF86MonBrightnessDown", function () awful.util.spawn(self.lightd) end },
       comment = "Reduce brightness"
     },
-    --{
-    --    args = { {                     }, "XF86MonBrightnessUp", function () br({ step = 5 }) end },
-    --    comment = "Increase brightness"
-    --},
-    --{
-    --    args = { {                     }, "XF86MonBrightnessDown", function () br({ step = 5, down = 1 }) end },
-    --    comment = "Reduce brightness"
-    --},
-    --{
-    --    args = { {                     }, "XF86MonBrightnessUp", function () awful.util.spawn(self.lightu) end },
-    --    comment = "Increase brightness"
-    --},
-    --{
-    --    args = { {                     }, "XF86MonBrightnessDown", function () awful.util.spawn(self.lightd) end },
-    --    comment = "Reduce brightness"
-    --},
     {
       args = { { "Mod1",      "Mod5" }, "1", function() redshift.toggle() end },
       comment = "Redshift toggle"
@@ -579,10 +574,6 @@ function hotkeys:init(args)
       args = { { self.mod,           }, "F3", toggle_placement },
       comment = "Toggle master/slave placement"
     },
-    --{
-    --    args = { { self.mod,           }, "0", awful.client.movetoscreen },
-    --    comment = "Toggle master/slave placement"
-    --},
     {
       args = { { self.mod, "Control" }, "Return", swap_with_master },
       comment = "Swap focused client with master"

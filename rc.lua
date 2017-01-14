@@ -80,7 +80,7 @@ local layouts = require("red.layout-config") -- load file with layouts configura
 -----------------------------------------------------------------------------------------------------------------------
 local tags = {
   names  = { "①  K ☢", "② Term ✎", "④ Free ☑", "⑤ Virt ⛃", "⑥ Docs ✍", "⑦ Max ☑"},
-  layout = { layouts[7], layouts[7],  layouts[7], layouts[8], layouts[8], layouts[2]},
+  layout = { layouts[7], layouts[7],  layouts[1], layouts[8], layouts[8], layouts[2]},
 }
 
 for s = 1, screen.count() do tags[s] = awful.tag(tags.names, s, tags.layout) end
@@ -155,16 +155,16 @@ upgrades.widget:buttons(awful.util.table.join(
 
 -- Keyboard widget
 --------------------------------------------------------------------------------
-local kbindicator = {}
-kbindicator.widget = redflat.widget.keyboard({ layouts = { "English", "Russian" } })
-kbindicator.layout = wibox.layout.margin(kbindicator.widget, unpack(pmargin.kbindicator or {}))
+--local kbindicator = {}
+--kbindicator.widget = redflat.widget.keyboard({ layouts = { "English", "Russian" } })
+--kbindicator.layout = wibox.layout.margin(kbindicator.widget, unpack(pmargin.kbindicator or {}))
 
-kbindicator.widget:buttons(awful.util.table.join(
-    awful.button({}, 1, function () redflat.widget.keyboard:toggle_menu() end),
-    awful.button({}, 3, function () awful.util.spawn_with_shell("sleep 0.1 && xdotool key 133+64+65") end),
-    awful.button({}, 4, function () redflat.widget.keyboard:toggle()      end),
-    awful.button({}, 5, function () redflat.widget.keyboard:toggle(true)  end)
-))
+--kbindicator.widget:buttons(awful.util.table.join(
+--    awful.button({}, 1, function () redflat.widget.keyboard:toggle_menu() end),
+--    awful.button({}, 3, function () awful.util.spawn_with_shell("sleep 0.1 && xdotool key 133+64+65") end),
+--    awful.button({}, 4, function () redflat.widget.keyboard:toggle()      end),
+--    awful.button({}, 5, function () redflat.widget.keyboard:toggle(true)  end)
+--))
 
 -- PA volume control
 -- also this widget used for exaile control

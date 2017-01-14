@@ -30,7 +30,9 @@ function rules:build(args)
     },
     {
       rule = { class = "Ranger" },
-      properties = { tag = tags[1][3], floating = false, switchtotag = true }
+      properties = { tag = tags[1][3], floating = false, switchtotag = true },
+      callback = function (c)
+        c:geometry( { x = 40, y = 40, width = 2160, height = 1674 }) end
     },
     {
       rule = { class = "Anki" },
@@ -45,12 +47,6 @@ function rules:build(args)
         c:geometry({ x = 5, y = 550, width = 960, height = 540 }) end
     },
     {
-      rule = { class = "Ncmpcpp" }, except = { role = "ncmpcpp" },
-      properties = { tag = tags[1][1],  border_width = 0, floating = true },
-      callback = function (c)
-        c:geometry( { x = 40, y = 40, width = 2160, height = 1674 }) end
-    },
-    {
       rule = { class = "Google-chrome" }, except = { role = "google-chrome" },
       properties = { tag = tags[1][1],  border_width = 0, floating = true },
       callback = function (c)
@@ -61,6 +57,12 @@ function rules:build(args)
       properties = { tag = tags[1][3], border_width = 0, floating = false },
       --callback = function( c )
         --c:geometry( { x = 0, y = 0, width = 3100 , height = 1750 }) end
+    },
+    {
+      rule = { class =  "Xephyr" },
+      properties = { tag = tags[1][4], floating = true, switchtotag = true },
+      callback = function (c)
+        c:geometry({ x = 300, y = 140, width = 2560, height = 1440 }) end
     },
     {
       rule = { class =  "Firefox" },
