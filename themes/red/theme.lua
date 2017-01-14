@@ -51,28 +51,28 @@ theme.path = homedir .. "/.config/awesome/themes/red"
 --------------------------------------------------------------------------------
 
 -- fonts
-theme.font          = "Roboto 14"      -- main theme font
-theme.font_title    = "Roboto bold 14" -- title font for widgets
-theme.font_titlebar = "Roboto bold 14" -- title font for windows
-theme.font_clock    = "Play bold 12" -- font for textclock widget
-theme.font_notify   = "Play bold 16" -- font for notify widget
-theme.font_keytip   = "Roboto bold 14" -- font for prefix key tip widget
+theme.font          = "Ubuntu Mono derivative Powerline 18"      -- main theme font
+theme.font_title    = "Ubuntu Mono derivative Powerline bold 16" -- title font for widgets
+theme.font_titlebar = "Ubuntu Mono derivative Powerline bold 16" -- title font for windows
+theme.font_clock    = "Ubuntu Mono derivative Powerline bold 14" -- font for textclock widget
+theme.font_notify   = "Ubuntu Mono derivative Powerline bold 18" -- font for notify widget
+theme.font_keytip   = "Ubuntu Mono derivative Powerline bold 16" -- font for prefix key tip widget
 
-theme.font_exaile_main = "Play bold 14" -- main font for exaile widget
-theme.font_exaile_time = "Play bold 16" -- time status font for exaile widget
+theme.font_exaile_main = "Ubuntu Mono derivative Powerline bold 16" -- main font for exaile widget
+theme.font_exaile_time = "Ubuntu Mono derivative Powerline bold 18" -- time status font for exaile widget
 
-theme.font_helper_title = "Roboto bold 16" -- hotkeys helper title font
+theme.font_helper_title = "Ubuntu Mono derivative Powerline bold 18" -- hotkeys helper title font
 
 -- cairo formated fonts
-theme.cf_appswitcher     = { font = "Play", size = 16, face = 1 } -- application switcher font
-theme.cf_monitor         = { font = "Play", size = 14, face = 1 } -- monitoring widget font
-theme.cf_navigator_title = { font = "Play", size = 22, face = 1, slant = 0 } -- window navigation title font
-theme.cf_navigator_main  = { font = "Play", size = 16, face = 1, slant = 0 } -- window navigation font
+theme.cf_appswitcher     = { font = "Play", size = 14, face = 1 } -- application switcher font
+theme.cf_monitor         = { font = "Play", size = 12, face = 1 } -- monitoring widget font
+theme.cf_navigator_title = { font = "Play", size = 20, face = 1, slant = 0 } -- window navigation title font
+theme.cf_navigator_main  = { font = "Play", size = 14, face = 1, slant = 0 } -- window navigation font
 
 -- environment vars
 theme.panel_height        = 40 -- panel height
-theme.border_width        = 4  -- window border width
-theme.useless_gap_width   = 4  -- Lain useless gap
+theme.border_width        = 2  -- window border width
+theme.useless_gap_width   = 2  -- Lain useless gap
 theme.global_border_width = 0  -- Lain global border gap
 
 -- grid layout prop
@@ -163,8 +163,8 @@ theme.desktop.dashpack = {
 --------------------------------------------------------------------------------
 theme.desktop.grid = {
 	width  = { 700, 700, 700 },
-	height = { 60, 170, 170, 170, 18, 180, 180, 140 },
-	edge   = { width = { 120, 120 }, height = { 120, 40 } }
+	height = { 60, 170, 170, 170, 20, 180, 180, 140 },
+	edge   = { width = { 120, 120 }, height = { 120, 80 } }
 }
 
 theme.desktop.places = {
@@ -492,6 +492,7 @@ theme.widget.tasklist.appnames = {}
 theme.widget.tasklist.appnames["Exaile"              ] = "EXAILE"
 theme.widget.tasklist.appnames["Smplayer"            ] = "SMPL"
 theme.widget.tasklist.appnames["Firefox"             ] = "FIFOX"
+theme.widget.tasklist.appnames["Google-chrome"       ] = "GOOG"
 theme.widget.tasklist.appnames["Gnome-terminal"      ] = "GTERM"
 theme.widget.tasklist.appnames["Gnome-system-monitor"] = "SYMON"
 theme.widget.tasklist.appnames["Gimp-2.8"            ] = "GIMP"
@@ -501,7 +502,9 @@ theme.widget.tasklist.appnames["Mcomix"              ] = "COMIX"
 theme.widget.tasklist.appnames["Claws-mail"          ] = "CMAIL"
 theme.widget.tasklist.appnames["URxvt"               ] = "RXVT"
 theme.widget.tasklist.appnames["VirtualBox"          ] = "VBOX"
-theme.widget.tasklist.appnames["Terminator"          ] = "TRM"
+theme.widget.tasklist.appnames["Terminator"          ] = "TERM"
+theme.widget.tasklist.appnames["Emacs"               ] = "EMACS"
+theme.widget.tasklist.appnames["Ranger"              ] = "RNGR"
 theme.widget.tasklist.appnames["Keepassx"            ] = "KPASS"
 
 -- Minitray
