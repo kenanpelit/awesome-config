@@ -79,7 +79,7 @@ local layouts = require("red.layout-config") -- load file with layouts configura
 -- Tags
 -----------------------------------------------------------------------------------------------------------------------
 local tags = {
-  names  = { "  ① K ☢  ", "  ② T ✎  ", "  ④ F ☑  ", "  ⑤ V ⛃  ", "  ⑥ D ✍  ", "  ⑦ M ☑  "},
+  names  = { "  ① K ☢  ", "  ② TER ✎  ", "  ④ FRE ☑  ", "  ⑤ VIR ⛃  ", "  ⑥ DOC ✍  ", "  ⑦ MAX ☑  "},
   layout = { layouts[7], layouts[7],  layouts[1], layouts[8], layouts[8], layouts[2]},
 }
 

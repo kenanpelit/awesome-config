@@ -50,7 +50,7 @@ function rules:build(args)
       rule = { class = "Google-chrome" }, except = { role = "google-chrome" },
       properties = { tag = tags[1][1],  border_width = 0, floating = true },
       callback = function (c)
-        c:geometry( { x = 40, y = 40, width = 2160, height = 1674 }) end
+        c:geometry( { x = 40, y = 40, width = 2300, height = 1674 }) end
     },
     {
       rule = { class = "Emacs" }, except = { role = "emacs" },
