@@ -28,23 +28,30 @@ function rules:build(args)
     --  callback = function (c)
     --    c:geometry({ x = 800, y = 300, width = 1600, height = 1200 }) end
     --},
+    --{
+    --  rule = { class = "Terminator" }, except = { role = "terminator" },
+      --properties = { tag = tags[1][1],  border_width = 0, floating = true },
+      --properties = { border_width = 0, floating = true },
+      --callback = function (c)
+       -- c:geometry( { x = 20, y = 20, width = 2260, height = 1700 }) end
+    --},
     {
       rule = { class = "mpv" }, except = { role = "gl" },
       properties = { border_width = 0, floating = true, switchtotag = true },
       callback = function (c)
-        c:geometry( { x = 2360, y = 40, width = 800, height = 1674 }) end
+        c:geometry( { x = 2240, y = 440, width = 940, height = 800 }) end
     },
     {
       rule = { class = "Ranger" },
       properties = { tag = tags[1][3], floating = false, switchtotag = true },
       callback = function (c)
-        c:geometry( { x = 40, y = 40, width = 2300, height = 1674 }) end
+        c:geometry( { x = 20, y = 20, width = 2200, height = 1700 }) end
     },
     {
       rule = { class = "Keepassx" },
       properties = { floating = false, switchtotag = true },
       callback = function (c)
-        c:geometry( { x = 2360, y = 40, width = 800, height = 1674 }) end
+        c:geometry( { x = 2240, y = 40, width = 940, height = 1674 }) end
     },
     {
       rule = { class = "Anki" },
@@ -62,7 +69,8 @@ function rules:build(args)
       rule = { class = "Google-chrome" }, except = { role = "google-chrome" },
       properties = { tag = tags[1][1],  border_width = 0, floating = true },
       callback = function (c)
-        c:geometry( { x = 40, y = 40, width = 2300, height = 1674 }) end
+        c:geometry( { x = 20, y = 20, width = 2200, height = 1700 }) end
+        --c:geometry( { x = 40, y = 40, width = 2300, height = 1674 }) end
     },
     {
       rule = { class = "Emacs" }, except = { role = "emacs" },

@@ -161,15 +161,15 @@ function hotkeys:init(args)
   self.nau = args.nau or "nautilus"
   self.clementine = args.clementine or "clementine"
   self.smplayer = args.smp or "smplayer"
-  self.xterm = args.xterm or "xterm"
-  self.fm = args.fm or "xterm -class Ranger -e ranger"
-  self.calendar = args.calendar or "xterm -class Calcurse -e calcurse"
+  self.termite = args.termite or "termite"
+  self.fm = args.fm or "termite --class Ranger -r Ranger -e ranger"
+  self.calendar = args.calendar or "termite --class Ranger -r Calcurse -e calcurse"
   self.mpv = args.mpv or "mpv --profile=pseudo-gui"
-  self.newsbeuter = args.newsbeuter or "xterm -e newsbeuter"
+  self.newsbeuter = args.newsbeuter or "termite -e newsbeuter"
   self.browser = args.browser or "google-chrome-stable %U --force-device-scale-factor=1.4"
   self.keepassx = args.keepassx or "keepassx2"
   self.virtualbox = args.virtualbox or "virtualbox"
-  --self.rofi = args.rofi or "/bin/sh -c ${HOME}/.scripta/rofi.sh"
+  self.rofi = args.rofi or "/bin/sh -c ${HOME}/.scripts/rofi.sh"
   self.alsamix = args.alsamix or "/bin/sh -c ${HOME}/.scripta/start-alsamixer.sh"
   self.pulsemix = args.pulsemix or "/bin/sh -c ${HOME}/.scripta/start-pulsemixer.sh"
   self.buku = args.buku or "/bin/sh -c ${HOME}/.scripta/buku-bookmark.sh"
@@ -259,11 +259,11 @@ function hotkeys:init(args)
     },
     { comment = "Scrachtpad" },
     {
-      args = { { self.mod,           }, "t", function() scratch.drop("terminator", "top", "center", 0.60, 0.40, true) end },
+      args = { { self.mod,           }, "t", function() scratch.drop("termite", "top", "center", 0.60, 0.40, true) end },
       comment = "Drop Down Terminal"
     },
     {
-      args = { { self.mod,           }, "l", function() scratch.drop("xterm -e ncmpcpp", "top", "center", 0.70, 0.50, true) end },
+      args = { { self.mod,           }, "l", function() scratch.drop("termite --class NCMPCPP -r NCMPCPP -e ncmpcpp", "top", "center", 0.70, 0.50, true) end },
       comment = "Drop Down Ncmpcpp"
     },
     {
@@ -296,8 +296,8 @@ function hotkeys:init(args)
       comment = "Music Pause"
     },
     {
-      args = { {              "Mod1" }, "u", function () awful.util.spawn(self.rofi) end },
-      comment = "Translate Popup"
+      args = { { self.mod,           }, "u", function () awful.util.spawn(self.rofi) end },
+      comment = "Rofi"
     },
     {
       args = { {              "Mod1" }, "c", function () awful.util.spawn(self.seltrl) end },

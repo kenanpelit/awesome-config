@@ -62,10 +62,10 @@ local homedir = os.getenv("HOME")
 local theme_path = homedir .. "/.config/awesome/themes/red"
 beautiful.init(theme_path .. "/theme.lua")
 
-local terminal = "terminator"
+local terminal = "termite"
 local editor   = os.getenv("EDITOR") or "emacs"
 local editor_cmd = terminal .. " -e " .. editor
-local fm = "xterm -e ranger"
+local fm = "termite -e ranger"
 local modkey = "Mod4"
 
 -- https://github.com/kenanpelit/hints
@@ -410,7 +410,7 @@ awful.rules.rules = custom_rules
 -----------------------------------------------------------------------------------------------------------------------
 local titlebar = require("red.titlebar-config") -- load file with titlebar configuration
 
-local t_exceptions = { "mpv", "google-chrome", "Key-mon", "terminator" }
+local t_exceptions = { "mpv", "google-chrome", "Key-mon", "termite", "terminator" }
 
 titlebar:init({ enable = true, exceptions = t_exceptions })
 

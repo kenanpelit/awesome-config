@@ -628,8 +628,8 @@ local exaile_size = { width = 520, height = 150 }
 theme.float.exaile = {
 	geometry     = exaile_size,
 	screen_gap   = theme.useless_gap_width + theme.global_border_width,
-	screen_pos   = { { x = 1340, y = wa.y + wa.height - theme.useless_gap_width - exaile_size.height } },
-	--screen_pos   = { { x = 1340, y = 1740 - theme.useless_gap_width - exaile_size.height } },
+	--screen_pos   = { { x = 1340, y = wa.y + wa.height - theme.useless_gap_width - exaile_size.height } },
+	screen_pos   = { { x = 1340, y = 1750 - theme.useless_gap_width - exaile_size.height } },
 	titlefont    = theme.font_exaile_main,
 	artistfont   = theme.font_exaile_main,
 	timefont     = theme.font_exaile_time,

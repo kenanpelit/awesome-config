@@ -20,18 +20,18 @@ local function micon(name)
 end
 
 -- run commands
-local ranger_command  = function() awful.util.spawn_with_shell("xterm -e $SHELL -ci 'ranger'") end
-local suspend_command = [[/bin/sh -c "~/.scripts/lock && sleep 3 && /bin/systemctl suspend"]]
-local reboot_command = [[/bin/sh -c "/bin/systemctl reboot"]]
-local lock_command = [[/bin/sh -c "~/.scripts/lock"]]
-local poweroff_command = [[/bin/sh -c "/bin/systemctl poweroff"]]
+local ranger_command  = function() awful.util.spawn_with_shell("termite -r Ranger -e ranger") end
+local suspend_command = [[/bin/sh -c "~/.scripta/start-lock.sh && sleep 3 && /usr/bin/systemctl suspend"]]
+local reboot_command = [[/bin/sh -c "/usr/bin/systemctl reboot"]]
+local lock_command = [[/bin/sh -c "~/.scripta/start-lock.sh"]]
+local poweroff_command = [[/bin/sh -c "/usr/bin/systemctl poweroff"]]
 
 -- Build function
 --------------------------------------------------------------------------------
 function menu.build(args)
 
 	local args = args or {}
-	local fm = args.fm or "ranger"
+	local fm = args.fm or "xterm -class Ranger -e ranger"
 	local separator = args.separator or { widget = redflat.gauge.separator.horizontal() }
 	local theme = args.theme or {}
 	local icon_style = args.icon_style or {}
