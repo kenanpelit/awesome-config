@@ -45,7 +45,7 @@ function rules:build(args)
       rule = { class = "Ranger" },
       properties = { tag = tags[1][3], floating = false, switchtotag = true },
       callback = function (c)
-        c:geometry( { x = 20, y = 20, width = 2200, height = 1700 }) end
+        c:geometry( { x = 20, y = 20, width = 2200, height = 1720 }) end
     },
     {
       rule = { class = "Keepassx" },
@@ -69,7 +69,7 @@ function rules:build(args)
       rule = { class = "Google-chrome" }, except = { role = "google-chrome" },
       properties = { tag = tags[1][1],  border_width = 0, floating = true },
       callback = function (c)
-        c:geometry( { x = 20, y = 20, width = 2200, height = 1700 }) end
+        c:geometry( { x = 20, y = 20, width = 2200, height = 1720 }) end
         --c:geometry( { x = 40, y = 40, width = 2300, height = 1674 }) end
     },
     {
