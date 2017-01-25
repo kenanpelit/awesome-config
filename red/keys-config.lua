@@ -166,7 +166,7 @@ function hotkeys:init(args)
   self.calendar = args.calendar or "termite --class Ranger -r Calcurse -e calcurse"
   self.mpv = args.mpv or "mpv --profile=pseudo-gui"
   self.newsbeuter = args.newsbeuter or "termite -e newsbeuter"
-  self.browser = args.browser or "google-chrome-stable %U --force-device-scale-factor=1.4"
+  self.browser = args.browser or "google-chrome-stable %U --force-device-scale-factor=1.5"
   self.keepassx = args.keepassx or "keepassx2"
   self.virtualbox = args.virtualbox or "virtualbox"
   self.rofi = args.rofi or "/bin/sh -c ${HOME}/.scripts/rofi.sh"
@@ -662,6 +662,11 @@ function hotkeys:init(args)
     {
       args = { { self.mod,           }, "F4", function (c) c:kill() end },
       comment = "Kill focused client"
+    },
+    {
+      --args = { { self.mod, "Control" }, "q", function (c) c:kill() end },
+      args = { {                "Mod1" }, "q", function (c) c:kill() end },
+      comment = "Kill focused client q"
     },
     {
       args = { { self.mod, "Control" }, "f", awful.client.floating.toggle },

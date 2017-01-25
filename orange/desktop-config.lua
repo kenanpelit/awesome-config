@@ -187,7 +187,7 @@ function desktop:init(args)
 	local diskset = { args = { timeout = { 60 }, actions = {} }, height = 280 }
 	diskset.unit = { { "KB", 1 }, { "MB", 1024^1 }, { "GB", 1024^2 } }
 
-	local disks_points = { "/", "/home", "/opt", "/mnt/media" }
+	local disks_points = { "/", "/home", "/hay", "/mnt/media" }
 	local disk_sentences = {
 		"Turning to the topic of drives %s of data was found on your system partition " ..
 		"and %s%s percent of disk space remain free.",
@@ -234,8 +234,8 @@ function desktop:init(args)
 	hardwareset.args.actions[1] = function()
 		local data = {}
 		data[1] = system.thermal.sensors("'Physical id 0'")
-		data[2] = system.thermal.hddtemp({ disk = "/dev/sdc" })
-		data[3] = system.thermal.nvprime()
+		data[2] = system.thermal.hddtemp({ disk = "/dev/sda" })
+		--data[3] = system.thermal.nvprime()
 
 		local values = {
 			{ form_value(data[1][1], colset.tcpu, {}) },

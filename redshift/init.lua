@@ -11,7 +11,8 @@ local awful = require("awful")
 local redshift = {}
 redshift.redshift = "/usr/bin/redshift"    -- binary path
 redshift.method = "randr"                  -- randr or vidmode
-redshift.options = ""                      -- additional redshift command options
+--redshift.options = "-l manual -t 5500:5000 -l 41.015137:28.979530 -g 0.9"                      -- additional redshift command options
+redshift.options = "-l manual -t 6500:3700 -l 41.015137:28.979530 -g 0.9"                      -- additional redshift command options
 redshift.state = 1                         -- 1 for screen dimming, 0 for none
 -- LATER
 --local timer = require("gears.timer")
